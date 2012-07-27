@@ -1,0 +1,83 @@
+#legroup{
+    font-size: 15px;
+    line-height:    2em;
+}
+
+#legroup h1{
+    border: none;
+    margin-bottom:  15px;
+    font-size:  1.5em
+}
+
+#legroup h2{
+    border: none;
+    margin-bottom:  15px;
+    font-size:  1.3em
+}
+
+#legroup h3{
+    border: none;
+    margin: 0px 0px 0px 0px;
+    font-size:  1.1em
+}
+
+#legroup .desc{
+    border: 1px solid #DDDDDD;
+    margin: 10px 20px 10px 20px;
+    padding:    10px;
+}
+
+#legroup .clear{
+    clear:  both;
+}
+
+#legroupMenu ul li{
+    width:  50px;
+    float:  left;
+    margin-left:    25px;
+    margin-bottom:  25px;
+    list-style-type: none;
+}
+
+
+/* 2 column table */
+
+#legroup .viewDetail dt{
+clear:both;
+width:140px;
+float:left;
+margin-top:10px;
+}
+
+#legroup .viewDetail dd{
+float:left;
+margin-top:10px;
+}
+
+/* Form */
+
+#legroup form{
+    
+}
+
+#legroup form dt{
+clear:both;
+width:140px;
+float:left;
+margin-top:10px;
+}
+
+#legroup form dd{
+float:left;
+margin-top:10px;
+}
+
+#legroup form dd.description{
+
+}
+
+
+#legroup .list dd{
+	float:right;
+}
+

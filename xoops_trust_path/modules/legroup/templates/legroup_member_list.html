@@ -1,0 +1,24 @@
+<div id="legroup">
+<ul class="nav nav-pills">
+  <li><a href="<{xoops_cooluri dirname=$dirname dataname=$dataname action=edit}>"><{$smarty.const._MD_LEGROUP_LANG_ADD_A_NEW_MEMBER}></a></li>
+</ul>
+
+<header>
+<h1><{$smarty.const._LIST}> <{$group->getShow('title')}></h1>
+</header>
+
+<{if count($objects) > 0}>
+  <table class="table">
+  <tbody>
+  <{foreach item=obj from=$objects}>
+    <tr>
+      <td><{$obj->getShow('uid')|xoops_user:user_name}><{if $myrank>=7 && $myrank>=$obj->getShow('rank')}><{assign var=groupId value=$obj->getShow('group_id')}><a href="<{xoops_cooluri dirname=$dirname dataname=$dataname data_id=$obj->getShow('member_id') action=approve query="group_id=$groupId"}>"> <i class="icon-pencil"></i></a><{/if}></td>
+      <td><{$obj->getShowRank()}></td>
+      <td><{if $obj->isApproved()===true}><{$smarty.const._MD_LEGROUP_LANG_APPROVED}><{else}><a href="<{xoops_cooluri dirname=$dirname dataname=member data_id=$obj->getShow('member_id') action=approve"}>" class="btn btn-mini btn-warning"><i class="icon-ok"></i> <{$smarty.const._MD_LEGROUP_LANG_NOT_APPROVED}></a><{/if}></td>
+    </tr>
+  <{/foreach}>
+  </tbody>
+  </table>
+  <div class="pagenavi"><{xoops_pagenavi pagenavi=$pageNavi}></div>
+<{/if}>
+</div>

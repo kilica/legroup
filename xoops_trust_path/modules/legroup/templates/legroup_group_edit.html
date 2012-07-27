@@ -1,0 +1,57 @@
+<div id="legroup">
+<header>
+  <h1><{$smarty.const._MD_LEGROUP_LANG_GROUP_EDIT}></h1>
+</header>
+<{if $actionForm->hasError()}>
+  <ul class="alert alert-error">
+    <{foreach item=message from=$actionForm->getErrorMessages()}>
+      <li><{$message|xoops_escape}></li>
+    <{/foreach}>
+  </ul>
+<{/if}>
+<form action="<{xoops_cooluri dirname=$dirname dataname=group action=edit}>" method="post" enctype="multipart/form-data" class="form-horizontal">
+  <fieldset>
+
+  <{xoops_input type=hidden name=group_id value=$actionForm->get('group_id')}>
+
+  <div class="control-group">
+    <label class="control-label required" for="title"><{$smarty.const._MD_LEGROUP_LANG_TITLE}></label>
+    <div class="controls"><{xoops_input type=text name=title value=$actionForm->get('title') size=20 maxlength=255 class="required"}></div>
+  </div>
+  <div class="control-group">
+    <label class="control-label required" for="publicity"><{$smarty.const._MD_LEGROUP_LANG_PUBLICITY}></label>
+    <div class="controls">
+      <label><{xoops_input type=radio name=publicity value=0 default=$actionForm->get('publicity')}><{$smarty.const._MD_LEGROUP_LANG_CLOSED}></label>
+      <label><{xoops_input type=radio name=publicity value=9 default=$actionForm->get('publicity')}><{$smarty.const._MD_LEGROUP_LANG_PUBLIC}></label>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label required" for="approval"><{$smarty.const._MD_LEGROUP_LANG_APPROVAL}></label>
+    <div class="controls">
+      <label><{xoops_input type=radio name=approval value=0 default=$actionForm->get('approval')}><{$smarty.const._MD_LEGROUP_LANG_APPROVAL_REQUIRED}></label>
+      <label><{xoops_input type=radio name=approval value=2 default=$actionForm->get('approval')}><{$smarty.const._MD_LEGROUP_LANG_APPROVAL_ASSOCIATE}></label>
+      <label><{xoops_input type=radio name=approval value=5 default=$actionForm->get('approval')}><{$smarty.const._MD_LEGROUP_LANG_APPROVAL_REGULAR}></label>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="description"><{$smarty.const._MD_LEGROUP_LANG_DESCRIPTION}></label>
+    <div class="controls"><{xoops_textarea type=text name=description value=$actionForm->get('description')}></div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="image"><{$smarty.const._MD_LEGROUP_LANG_IMAGE}></label>
+    <div class="controls">
+      <{if $image}>
+      <img src="<{$image->getFileUrl(1)}>" alt="<{$image->getShow('title')}>" />
+      <{/if}>
+      <{xoops_input type=file name=image1 size=30}>
+    </div>
+  </div>
+  <div class="form-actions">
+    <{xoops_token form=$actionForm}>
+    <{xoops_input type=hidden name=group_id value=$actionForm->get('group_id')}>
+    <button type="submit" class="btn btn-primary"><{$smarty.const._SUBMIT}></button>
+    <button type="submit" class="btn" name="_form_control_cancel" value="_form_control_cancel"><{$smarty.const._CANCEL}></button>
+  </div>
+  </fieldset>
+</form>
+</div>

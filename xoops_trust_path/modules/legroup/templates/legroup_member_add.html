@@ -1,0 +1,42 @@
+<div id="legroup">
+<header>
+  <h1><{$smarty.const._MD_LEGROUP_LANG_MEMBER_EDIT}></h1>
+</header>
+
+<{if $actionForm->hasError()}>
+  <ul class="alert alert-error">
+    <{foreach item=message from=$actionForm->getErrorMessages()}>
+      <li><{$message|xoops_escape}></li>
+    <{/foreach}>
+  </ul>
+<{/if}>
+
+<form action="<{xoops_cooluri dirname=$dirname dataname=member action=edit}>" method="post" class="form-horizontal">
+  <fieldset>
+  <div class="control-group">
+    <label class="control-label" for="title"><{$smarty.const._MD_LEGROUP_LANG_GROUP}></label>
+    <div class="controls"><{$group->getShow('title')}></div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="uid"><{$smarty.const._MD_LEGROUP_LANG_USER}></label>
+    <div class="controls">
+      <select name="uid">
+      <{foreach item=user from=$userObjs}>
+      <option value="<{$user->get('uid')}>"><{$user->get('uid')}>: <{$user->get('name')}></option>
+      <{/foreach}>
+      </select>
+    </div>
+  </div>
+  <div class="form-actions">
+    <div class="controls">
+      <{xoops_token form=$actionForm}>
+      <{xoops_input type=hidden name=member_id value=$actionForm->get('member_id')}>
+      <{xoops_input type=hidden name=group_id value=$actionForm->get('group_id')}>
+      <{xoops_input type=hidden name=rank value=$actionForm->get('rank')}>
+      <button type="submit" class="btn btn-primary"><{$smarty.const._SUBMIT}></button>
+      <button type="submit" class="btn" name="_form_control_cancel" value="_form_control_cancel"><{$smarty.const._CANCEL}></button>
+    </div>
+  </div>
+  </fieldset>
+</form>
+</div>

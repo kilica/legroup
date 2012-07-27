@@ -1,0 +1,63 @@
+<{assign var=groupId value=$object->getShow('group_id')}>
+<div id="legroup">
+<{if $isEditor===true}>
+<ul class="nav nav-pills">
+<li><a href="<{xoops_cooluri dirname=$dirname dataname=group action=edit data_id=$object->get('group_id')}>"><{$smarty.const._MD_LEGROUP_LANG_GROUP_EDIT}></a></li>
+</ul>
+<{/if}>
+
+<header>
+  <h1>
+    <{$object->getShow('title')}> [<{$object->getShowPublicity()}>]
+    <{if $object->isMember($xoops_userid)}><a href="<{xoops_cooluri dirname=$dirname dataname=member data_id=$object->getMyMemberId() action=delete}>" class="btn btn-small"><i class="icon-trash"></i> <{$smarty.const._MD_LEGROUP_LANG_RESIGN}></a><{else}><a href="<{xoops_cooluri dirname=$dirname dataname=member action=edit query="group_id=`$groupId`"}>" class="btn btn-small"><i class="icon-user"></i> <{$smarty.const._MD_LEGROUP_LANG_JOIN}></a><{/if}>
+  </h1>
+  <div><{$object->getShow('description')}></div>
+</header>
+
+<!-- Group Member List -->
+<section>
+  <h2>
+    <{$smarty.const._MD_LEGROUP_LANG_MEMBER}> (<{$object->countMembers()}>)
+    <{if $object->isMember($xoops_userid, 7)}><a href="<{xoops_cooluri dirname=$dirname dataname=member action=add query="group_id=`$groupId`"}>" class="btn btn-small"><i class="icon-user"></i> <{$smarty.const._MD_LEGROUP_LANG_ADD_A_NEW_MEMBER}></a><{/if}>
+    <a href="<{xoops_cooluri dirname=$dirname dataname=member action=list query="group_id=`$groupId`"}>" class="btn btn-small"><i class="icon-list"></i><{$smarty.const._MD_LEGROUP_LANG_MEMBER}></a>
+    <{if $object->countMembers(null, 5)>0 && $object->getMyRank()>=7}><a href="<{xoops_cooluri dirname=$dirname dataname=member query="group_id=$groupId"}>" class="btn btn-small btn-warning"><i class="icon-ok"></i> <{$smarty.const._MD_LEGROUP_LANG_NOT_APPROVED}></a><{/if}>
+  </h2>
+  <section>
+    <h3><{$smarty.const._MD_LEGROUP_LANG_RECENT_MEMBERS}></h3>
+    <ul>
+    <{foreach item=member from=$object->mMember}>
+      <{if $member->getShow('status')==9 || $object->getMyRank()>=constant('Lenum_GroupRank::STAFF')}>
+      <li><{$member->getShow('uid')|xoops_user:"user_name"}></li>
+      <{/if}>
+    <{/foreach}>
+    </ul>
+  </section>
+</section>
+
+<!-- Group Client Data -->
+<section id="clientList">
+  <{foreach item=client from=$clients.data key=k}>
+  <div class="client">
+    <h2><{$clients.title[$k]}>
+      <a href="<{xoops_cooluri dirname=$clients.dirname[$k] dataname=$clients.dataname[$k] action=list query="category_id=`$groupId`"}>" class="btn btn-small"><i class="icon-list"></i></a>
+      <{if $clients.isEditor[$k]==true}><a href="<{xoops_cooluri dirname=$clients.dirname[$k] dataname=$clients.dataname[$k] action=edit query="category_id=`$groupId`"}>" class="btn btn-small"><i class="icon-pencil"></i><{$smarty.const._EDIT}></a><{/if}>
+    </h2>
+    <{foreach item=item from=$clients.data[$k]}>
+    <{include file="`$clients.template_name[$k]`" data=$item}>
+    <{/foreach}>
+  </div>
+  <{/foreach}>
+</section>
+
+<{if $object->isMember($xoops_userid, constant('Lenum_GroupRank::OWNER'))}>
+<!-- Policy Edit link -->
+<section>
+  <h2><{$smarty.const._MD_LEGROUP_LANG_EDIT_POLICY}></h2>
+  <ul>
+  <{foreach item=client from=$clientList key=k}>
+  <li><a href="<{xoops_cooluri dirname=$dirname dataname=policy action=edit query="dirname=`$client.dirname`&dataname=`$client.dataname`&group_id=$groupId"}>"><{$client.dirname}> - <{$client.dataname}></a></li>
+  <{/foreach}>
+  </ul>
+</section>
+<{/if}>
+</div>

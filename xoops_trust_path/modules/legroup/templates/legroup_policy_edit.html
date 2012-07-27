@@ -1,0 +1,47 @@
+<div id="legroup">
+<header>
+  <h1><{$targetModule}> <{$smarty.const._MD_LEGROUP_LANG_POLICY_EDIT}> : <{$group->getShow('title')}></h1>
+</header>
+
+<{if $actionForm->hasError()}>
+  <ul class="alert alert-error">
+    <{foreach item=message from=$actionForm->getErrorMessages()}>
+      <li><{$message|xoops_escape}></li>
+    <{/foreach}>
+  </ul>
+<{/if}>
+
+<form action="<{xoops_cooluri dirname=$dirname dataname=policy action=edit}>" method="post" class="form-horizontal">
+  <fieldset>
+  <{foreach item=obj from=$object key=k}>
+  <{xoops_input type=hidden name=policy_id[$k] value=$actionForm->get('policy_id', $k)}>
+  <div class="control-group">
+    <label class="control-label required" for="action[<{$k}>]"><{$smarty.const._MD_LEGROUP_LANG_ACTION}></label>
+    <div class="controls">
+      <{$obj->getShow('action')}>
+      <{xoops_input type=hidden name=action[$k] value=$actionForm->get('action', $k) size=20 maxlength=25 class="required"}>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="rank[<{$k}>]"><{$smarty.const._MD_LEGROUP_LANG_RANK}></label>
+    <div class="controls">
+      <select name=rank[<{$k}>]>
+      <{foreach item=rankOpt from=$rankList key=r}>
+        <option value=<{$r}><{if $r==$actionForm->get('rank', $k)}> selected="selected"<{/if}>><{$rankOpt}></option>
+      <{/foreach}>
+      </select>
+    </div>
+  </div>
+  <{/foreach}>
+
+  <div class="form-actions">
+    <{xoops_token form=$actionForm}>
+    <{xoops_input type=hidden name=group_id value=$policyArr.group_id}>
+    <{xoops_input type=hidden name=dirname value=$policyArr.dirname}>
+    <{xoops_input type=hidden name=dataname value=$policyArr.dataname}>
+    <button type="submit" class="btn btn-primary"><{$smarty.const._SUBMIT}></button>
+    <button type="submit" class="btn" name="_form_control_cancel" value="_form_control_cancel"><{$smarty.const._CANCEL}></button>
+  </div>
+  </fieldset>
+</form>
+</div>
