@@ -133,7 +133,7 @@ class Legroup_MemberEditAction extends Legroup_AbstractEditAction
 				$this->mRoot->mController->executeRedirect($this->_getNextUri('group', 'list'), 1, _MD_LEGROUP_ERROR_NO_GROUP_ID);
 			}
 			//get user id
-			$uid = ($this->mRoot->mContext->mRequest->getRequest('uid')>0) ? $this->mObject->mContext->mRequest->getRequest('uid') : Legacy_Utils::getUid();
+			$uid = ($this->mRoot->mContext->mRequest->getRequest('uid')>0) ? $this->mRoot->mContext->mRequest->getRequest('uid') : Legacy_Utils::getUid();
 		
 			$this->mObject->set('uid', $uid);
 			$this->mObject->set('group_id', $groupId);
