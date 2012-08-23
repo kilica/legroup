@@ -129,7 +129,7 @@ class Legroup_GroupEditAction extends Legroup_AbstractEditAction
 	 * @return	void
 	**/
 	public function executeViewCancel(/*** XCube_RenderTarget ***/ &$render)
-	{die();
+	{
 		$this->mRoot->mController->executeForward($this->_getNextUri('group'));
 	}
 
