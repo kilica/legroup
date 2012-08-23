@@ -1,6 +1,7 @@
 <div id="legroup">
 <ul class="nav nav-pills">
-  <li><a href="<{xoops_cooluri dirname=$dirname dataname=$dataname action=edit}>"><{$smarty.const._MD_LEGROUP_LANG_ADD_A_NEW_MEMBER}></a></li>
+  <{assign var=groupId value=$group->getShow('group_id')}>
+  <li><a href="<{xoops_cooluri dirname=$dirname dataname=$dataname action=edit query="group_id=`$groupId`"}>"><{$smarty.const._MD_LEGROUP_LANG_ADD_A_NEW_MEMBER}></a></li>
 </ul>
 
 <header>
