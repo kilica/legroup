@@ -184,7 +184,7 @@ class Legroup_MemberEditAction extends Legroup_AbstractEditAction
 	**/
 	public function executeViewSuccess(/*** XCube_RenderTarget ***/ &$render)
 	{
-		$this->mRoot->mController->executeForward($this->_getNextUri('member'));
+		$this->mRoot->mController->executeForward(Legacy_Utils::renderUri($this->mAsset->mDirname, 'group', $this->mObject->getShow('group_id')));
 	}
 
 	/**
