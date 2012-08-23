@@ -17,6 +17,11 @@ require_once LEGROUP_TRUST_PATH . '/class/AbstractDeleteAction.class.php';
 **/
 class Legroup_MemberDeleteAction extends Legroup_AbstractDeleteAction
 {
+	protected function _getTitle()
+	{
+		return _MD_LEGROUP_LANG_MEMBER;
+	}
+
 	/**
 	 * &_getHandler
 	 * 
