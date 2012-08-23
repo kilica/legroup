@@ -182,7 +182,7 @@ class Legroup_MemberHandler extends XoopsObjectGenericHandler
 		$memberArr = $this->getObjects($mCri);
 		foreach(array_keys($memberArr) as $key){
 			$groupId = $memberArr[$key]->get('group_id');
-			if($policyList[$groupId] <= $memberArr[$key]->get('rank')){
+			if(isset($policyList[$groupId]) && $policyList[$groupId] <= $memberArr[$key]->get('rank')){
 				$ids[] = $memberArr[$key]->get('group_id');
 			}
 		}
