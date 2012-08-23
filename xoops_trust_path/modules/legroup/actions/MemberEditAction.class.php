@@ -46,6 +46,11 @@ class Legroup_MemberEditAction extends Legroup_AbstractEditAction
 		}
 	}
 
+	protected function _getTitle()
+	{
+		return _MD_LEGROUP_LANG_MEMBER;
+	}
+
 	/**
 	 * get group_id from request
 	 * 
