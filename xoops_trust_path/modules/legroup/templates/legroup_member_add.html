@@ -22,7 +22,7 @@
     <div class="controls">
       <select name="uid">
       <{foreach item=user from=$userObjs}>
-      <option value="<{$user->get('uid')}>"><{$user->get('uid')}>: <{$user->get('name')}></option>
+      <option value="<{$user->get('uid')}>"><{$user->get('uid')}>: <{$user->get('uid')|xoops_user:user_name}></option>
       <{/foreach}>
       </select>
     </div>
