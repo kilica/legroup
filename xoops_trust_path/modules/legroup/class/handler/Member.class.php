@@ -155,7 +155,13 @@ class Legroup_MemberHandler extends XoopsObjectGenericHandler
 		$cri->add(new Criteria('rank', $rank, '>='));
 		$cri->add(new Criteria('status', Lenum_WorkflowStatus::FINISHED));
 		$cri->setSort('posttime', 'DESC');
-		return $this->getIdList($cri, $limit, $start);
+	
+		$ret = array();
+		$members = $this->getObjects($cri, $limit, $start);
+		foreach($members as $member){
+			$ret[] = $member->get('group_id');
+		}
+		return $ret;
 	}
 
 	/**
