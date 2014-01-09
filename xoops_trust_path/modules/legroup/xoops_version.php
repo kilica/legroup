@@ -157,21 +157,16 @@ $modversion['config'] = array(
 // Block setting
 //
 $modversion['blocks'] = array(
-/*
-	x => array(
-		'func_num'			=> x,
-		'file'				=> 'xxxBlock.class.php',
-		'class' 			=> 'xxx',
-		'name'				=> _MI_LEGROUP_BLOCK_NAME_xxx,
-		'description'		=> _MI_LEGROUP_BLOCK_DESC_xxx,
-		'options'			=> '',
-		'template'			=> '{dirname}_block_xxx.html',
-		'show_all_module'	=> true,
-		'visible_any'		=> true
-	),
-*/
-##[cubson:block]
-##[/cubson:block]
+    1 => array(
+        'func_num'			=> 1,
+        'file'				=> 'MygroupBlock.class.php',
+        'class' 			=> 'MygroupBlock',
+        'name'				=> _MI_LEGROUP_BLOCK_NAME_MYGROUP,
+        'description'		=> '',
+        'options'			=> '0',
+        'template'			=> '{dirname}_block_mygroup.html',
+        'show_all_module'	=> true,
+        'visible_any'		=> true
+    ),
 );
 
-?>

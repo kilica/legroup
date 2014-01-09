@@ -1,9 +1,9 @@
 <div id="legroup">
-<header>
+<div class="page-header">
   <h1><{$smarty.const._MD_LEGROUP_LANG_GROUP_DELETE}> <{$object->getShow('title')}></h1>
-</header>
+</div>
 
-<div class="alert"><{$smarty.const._MD_LEGROUP_MESSAGE_CONFIRM_DELETE}></div>
+<div class="alert alert-warning"><{$smarty.const._MD_LEGROUP_MESSAGE_CONFIRM_DELETE}></div>
 
 <form action="<{xoops_cooluri dirname=$dirname dataname=group action=delete}>" method="post" class="form-horizontal">
   <fieldset>
@@ -12,8 +12,8 @@
     <div class="form-actions">
       <{xoops_token form=$actionForm}>
       <{xoops_input type=hidden name=group_id value=$actionForm->get('group_id')}>
-      <input type="submit" class="formButton" value="<{$smarty.const._DELETE}>"/>
-      <input type="submit" class="formButton" value="<{$smarty.const._CANCEL}>" name="_form_control_cancel"/>
+      <button type="submit" class="btn btn-primary" value="<{$smarty.const._DELETE}>"><{$smarty.const._DELETE}></button>
+      <button type="submit" class="btn" value="<{$smarty.const._CANCEL}>" name="_form_control_cancel"><{$smarty.const._CANCEL}></button>
     </div>
   </fieldset>
 </form>

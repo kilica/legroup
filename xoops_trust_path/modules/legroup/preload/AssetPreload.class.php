@@ -53,7 +53,10 @@ class Legroup_AssetPreloadBase extends XCube_ActionFilter
 		$this->mRoot->mDelegateManager->add('Module.legroup.Global.Event.GetAssetManager','Legroup_AssetPreloadBase::getManager');
 		$this->mRoot->mDelegateManager->add('Legacy_Utils.CreateModule','Legroup_AssetPreloadBase::getModule');
 		$this->mRoot->mDelegateManager->add('Legacy_Utils.CreateBlockProcedure','Legroup_AssetPreloadBase::getBlock');
-		$this->mRoot->mDelegateManager->add('Module.'.$this->mDirname.'.Global.Event.GetNormalUri','Legroup_CoolUriDelegate::getNormalUri', $file);
+
+		$this->mRoot->mDelegateManager->add('Module.'.$this->mDirname.'.Global.Event.GetNormalUri','Legroup_DelegateFunctions::getNormalUri', $file);
+        $this->mRoot->mDelegateManager->add('Module.'.$this->mDirname.'.Global.Event.GetBreadcrumbs','Legroup_DelegateFunctions::getBreadcrumbs', $file);
+
 		$this->mRoot->mDelegateManager->add('Legacy_ImageClient.GetClientList','Legroup_ImageClientDelegate::getClientList', $file);
 	
 		//Legacy Group Delegate

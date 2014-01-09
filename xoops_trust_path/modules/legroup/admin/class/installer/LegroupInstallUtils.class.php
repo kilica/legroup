@@ -652,7 +652,7 @@ class Legroup_InstallUtils
     **/
     public static function updateBlockTemplateByInfo(/*** Legacy_BlockInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
     {
-        $blockHandler =& Legroup_Utils::getModuleHandler('newblocks','legacy');
+        $blockHandler =& Legacy_Utils::getModuleHandler('newblocks','legacy');
         $cri = new CriteriaCompo();
         $cri->add(new Criteria('dirname',$module->get('dirname')));
         $cri->add(new Criteria('func_num',$info->mFuncNum));
@@ -676,7 +676,7 @@ class Legroup_InstallUtils
     **/
     public static function updateBlockByInfo(/*** Legacy_BlockInformation ***/ &$info,/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
     {
-        $blockHandler =& Legroup_Utils::getModuleHandler('newblocks','legacy');
+        $blockHandler =& Legacy_Utils::getModuleHandler('newblocks','legacy');
         $cri = new CriteriaCompo();
         $cri->add(new Criteria('dirname',$module->get('dirname')));
         $cri->add(new Criteria('func_num',$info->mFuncNum));
@@ -784,7 +784,7 @@ class Legroup_InstallUtils
     **/
     public static function uninstallBlockByFuncNum(/*** int ***/ $func_num,/*** XoopsModule ***/ &$module,/*** Legacy_ModuleInstallLog ***/ &$log)
     {
-        $blockHandler =& Legroup_Utils::getModuleHandler('newblocks','legacy');
+        $blockHandler =& Legacy_Utils::getModuleHandler('newblocks','legacy');
         $cri = new CriteriaCompo();
         $cri->add(new Criteria('dirname',$module->get('dirname')));
         $cri->add(new Criteria('func_num',$func_num));

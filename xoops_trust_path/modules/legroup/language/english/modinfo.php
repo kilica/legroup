@@ -70,4 +70,6 @@ Example:<br />
 forum,topics<br />
 forum,reply<br />
 album,item');
-?>
+
+/** blocks */
+define('_MI_LEGROUP_BLOCK_NAME_MYGROUP', 'My Group');

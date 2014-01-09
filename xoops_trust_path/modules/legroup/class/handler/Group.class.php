@@ -95,16 +95,15 @@ class Legroup_GroupObject extends Legacy_AbstractGroupObject
 	 * 
 	 * @return	int[]
 	**/
-	public function isMember(/*** int ***/ $uid, /*** Enum ***/ $rank=Lenum_GroupRank::REGULAR)
+	public function isMember(/*** int ***/ $uid, /*** Enum ***/ $rank=Lenum_GroupRank::REGULAR, $status=Lenum_WorkflowStatus::FINISHED)
 	{
 		$handler = Legacy_Utils::getModuleHandler('member', $this->getDirname());
 		$cri = new CriteriaCompo();
 		$cri->add(new Criteria('group_id', $this->get('group_id')));
 		$cri->add(new Criteria('uid', $uid));
 		$cri->add(new Criteria('rank', $rank, '>='));
-		$cri->add(new Criteria('status', Lenum_WorkflowStatus::FINISHED));
-		$ids = $handler->getIdList($cri);
-		return count($ids)>0 ? true :false;
+		$cri->add(new Criteria('status', $status, '>='));
+		return $handler->getCount($cri)>0 ? true :false;
 	}
 
 	/**

@@ -4,12 +4,12 @@
   <li><a href="<{xoops_cooluri dirname=$dirname dataname=$dataname action=add query="group_id=`$groupId`"}>"><{$smarty.const._MD_LEGROUP_LANG_ADD_A_NEW_MEMBER}></a></li>
 </ul>
 
-<header>
+<div class="page-header">
 <h1><{$smarty.const._LIST}> <{$group->getShow('title')}></h1>
-</header>
+</div>
 
 <{if count($objects) > 0}>
-  <table class="table">
+  <table class="table table-striped">
   <tbody>
   <{foreach item=obj from=$objects}>
     <tr>

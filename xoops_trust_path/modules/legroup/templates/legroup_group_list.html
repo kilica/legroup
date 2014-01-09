@@ -1,11 +1,13 @@
 <div id="legroup">
-<ul class="nav nav-pills">
-  <li><a href="<{xoops_cooluri dirname=$dirname dataname=$dataname action=edit}>"><{$smarty.const._MD_LEGROUP_LANG_ADD_A_NEW_GROUP}></a></li>
-</ul>
 
-<header>
-  <h1><{$smarty.const._MD_LEGROUP_LANG_GROUP}><{$smarty.const._LIST}></h1>
-</header>
+<div class="page-header">
+  <h1>
+    <{$smarty.const._MD_LEGROUP_LANG_GROUP}><{$smarty.const._LIST}>
+    <{if $xoops_isuser}>
+    <a class="btn" href="<{xoops_cooluri dirname=$dirname dataname=$dataname action=edit}>"><i class="icon-pencil"></i> <{$smarty.const._MD_LEGROUP_LANG_ADD_A_NEW_GROUP}></a>
+    <{/if}>
+  </h1>
+</div>
 
 <{if count($objects) > 0}>
 <section class="timeline">

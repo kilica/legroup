@@ -1,0 +1,5 @@
+<ul class="legroup">
+  <{foreach item=group from=$block}>
+  <li><a href="<{xoops_cooluri dirname=$dirname dataname=group action=view data_id=$group->get('group_id')}>"><{$group->getShow('title')}></a></li>
+  <{/foreach}>
+</ul>

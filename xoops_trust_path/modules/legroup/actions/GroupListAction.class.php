@@ -84,6 +84,11 @@ class Legroup_GroupListAction extends Legroup_AbstractListAction
 		$render->setAttribute('dirname', $this->mAsset->mDirname);
 		$render->setAttribute('dataname', 'group');
 		$render->setAttribute('pageNavi', $this->mFilter->mNavi);
+
+        //breadcrumb
+        $breadcrumbs = array();
+        XCube_DelegateUtils::call('Module.'.$this->mAsset->mDirname.'.Global.Event.GetBreadcrumbs', new XCube_Ref($breadcrumbs), $this->mAsset->mDirname);
+        $render->setAttribute('xoops_breadcrumbs', $breadcrumbs);
 	}
 }
 
