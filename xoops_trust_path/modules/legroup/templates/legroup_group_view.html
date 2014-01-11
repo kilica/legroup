@@ -4,7 +4,9 @@
 <div class="page-header">
   <h1>
     <{$object->getShow('title')}> [<{$object->getShowPublicity()}>]
-    <{if $object->isMember($xoops_userid, Lenum_GroupRank::ASSOCIATE)}><a href="<{xoops_cooluri dirname=$dirname dataname=member data_id=$object->getMyMemberId() action=delete}>" class="btn btn-small"><i class="icon-trash"></i> <{$smarty.const._MD_LEGROUP_LANG_RESIGN}></a><{elseif $object->isMember($xoops_userid, Lenum_GroupRank::ASSOCIATE, Lenum_WorkflowStatus::PROGRESS)}><{else}><a href="<{xoops_cooluri dirname=$dirname dataname=member action=edit query="group_id=`$groupId`"}>" class="btn btn-small"><i class="icon-user"></i> <{$smarty.const._MD_LEGROUP_LANG_JOIN}></a><{/if}>
+    <{if $object->isMember($xoops_userid, Lenum_GroupRank::ASSOCIATE)}>
+    <a href="<{xoops_cooluri dirname=$dirname dataname=member data_id=$object->getMyMemberId() action=delete}>" class="btn btn-small">
+      <i class="icon-trash"></i> <{$smarty.const._MD_LEGROUP_LANG_RESIGN}></a><{elseif $object->isMember($xoops_userid, Lenum_GroupRank::ASSOCIATE, Lenum_WorkflowStatus::PROGRESS)}><{else}><a href="<{xoops_cooluri dirname=$dirname dataname=member action=edit query="group_id=`$groupId`"}>" class="btn btn-small"><i class="icon-user"></i> <{$smarty.const._MD_LEGROUP_LANG_JOIN}></a><{/if}>
     <{if $isEditor===true}>
     <a class="btn" href="<{xoops_cooluri dirname=$dirname dataname=group action=edit data_id=$object->get('group_id')}>"><i class="icon-pencil"></i> <{$smarty.const._MD_LEGROUP_LANG_GROUP_EDIT}></a>
     <{/if}>
