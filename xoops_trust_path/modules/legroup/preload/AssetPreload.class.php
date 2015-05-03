@@ -117,7 +117,7 @@ class Legroup_AssetPreloadBase extends XCube_ActionFilter
 	**/
 	public static function getBlock(/*** Legacy_AbstractBlockProcedure ***/ &$obj,/*** XoopsBlock ***/ $block)
 	{
-		$moduleHandler =& Legroup_Utils::getXoopsHandler('module');
+		$moduleHandler = Legroup_Utils::getXoopsHandler('module');
 		$module =& $moduleHandler->get($block->get('mid'));
 		if(is_object($module) && $module->getInfo('trust_dirname') == 'legroup')
 		{

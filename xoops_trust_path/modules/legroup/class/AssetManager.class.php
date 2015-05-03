@@ -42,7 +42,7 @@ class Legroup_AssetManager
      * 
      * @return  Legroup_AssetManager
     **/
-    public function &getInstance(/*** string ***/ $dirname)
+    public static function &getInstance(/*** string ***/ $dirname)
     {
         /**
          *  @var    Legroup_AssetManager[]

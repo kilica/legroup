@@ -328,7 +328,7 @@ class Legroup_GroupHandler extends XoopsObjectGenericHandler
 	 * 
 	 * @return	
 	**/
-	public function delete(&$obj)
+	public function delete(&$obj, $force = false)
 	{
 		//delete members in this group
 		$handler = Legacy_Utils::getModuleHandler('member', $this->getDirname());
@@ -340,7 +340,7 @@ class Legroup_GroupHandler extends XoopsObjectGenericHandler
 		$handler->deleteAll(new Criteria('group_id', $obj->get('group_id')));
 		unset($handler);
 	
-		return parent::delete($obj);
+		return parent::delete($obj, $force);
 	}
 
 	/**
