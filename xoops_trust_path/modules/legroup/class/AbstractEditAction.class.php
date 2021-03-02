@@ -224,5 +224,3 @@ abstract class Legroup_AbstractEditAction extends Legroup_AbstractAction
 		return $ret;
 	}
 }
-
-?>

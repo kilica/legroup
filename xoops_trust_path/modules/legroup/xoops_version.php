@@ -21,7 +21,7 @@ require_once LEGROUP_TRUST_PATH . '/class/LegroupUtils.class.php';
 // Define a basic manifesto.
 //
 $modversion['name'] = _MI_LEGROUP_LANG_LEGROUP;
-$modversion['version'] = 0.20;
+$modversion['version'] = 0.21;
 $modversion['description'] = _MI_LEGROUP_DESC_LEGROUP;
 $modversion['author'] = _MI_LEGROUP_LANG_AUTHOR;
 $modversion['credits'] = _MI_LEGROUP_LANG_CREDITS;
