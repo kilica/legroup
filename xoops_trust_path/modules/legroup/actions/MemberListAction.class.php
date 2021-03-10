@@ -28,7 +28,7 @@ class Legroup_MemberListAction extends Legroup_AbstractListAction
     {
         $req = $this->mRoot->mContext->mRequest;
         $dataId = $req->getRequest(_REQUESTED_DATA_ID);
-        return isset($dataId) ? intval($dataId) : intval($req->getRequest('group_id'));
+        return isset($dataId) ? (int)$dataId : (int)$req->getRequest('group_id');
     }
 
      /**
@@ -53,8 +53,10 @@ class Legroup_MemberListAction extends Legroup_AbstractListAction
     **/
     protected function _getFilterForm()
     {
-        $filter =& $this->mAsset->getObject('filter', 'Member',false);
-        $filter->prepare($this->_getPageNavi(), $this->_getHandler());
+        $filter = $this->mAsset->getObject('filter', 'Member',false);
+        $filter_navi = $this->_getPageNavi();
+        $filter_handler = $this->_getHandler();
+        $filter->prepare($filter_navi, $filter_handler);
         return $filter;
     }
 
@@ -96,16 +98,16 @@ class Legroup_MemberListAction extends Legroup_AbstractListAction
     **/
     public function getDefaultView()
     {
-        $this->mFilter =& $this->_getFilterForm();
+        $this->mFilter = $this->_getFilterForm();
         $this->mFilter->fetch();
     
-        $handler =& $this->_getHandler();
+        $handler = $this->_getHandler();
         $cri = $this->mFilter->getCriteria();
         //if you are staff, show all members unauthorized.
         if(! $this->_getHandler()->isMember($this->_getGroupId(), Legacy_Utils::getUid(), Lenum_GroupRank::STAFF)){
             $cri->add(new Criteria('status', Lenum_WorkflowStatus::FINISHED));
         }
-        $this->mObjects =& $handler->getObjects($cri);
+        $this->mObjects = $handler->getObjects($cri);
     
         return LEGROUP_FRAME_VIEW_INDEX;
     }
@@ -140,5 +142,3 @@ class Legroup_MemberListAction extends Legroup_AbstractListAction
         $render->setAttribute('xoops_breadcrumbs', $breadcrumbs);
     }
 }
-
-?>

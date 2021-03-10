@@ -128,5 +128,3 @@ class Legroup_GroupDeleteAction extends Legroup_AbstractDeleteAction
         $this->mRoot->mController->executeForward($this->_getNextUri('group'));
     }
 }
-
-?>

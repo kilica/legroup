@@ -157,5 +157,3 @@ class Legroup_GroupEditAction extends Legroup_AbstractEditAction
         return ($ret==true) ? LEGROUP_FRAME_VIEW_SUCCESS : LEGROUP_FRAME_VIEW_ERROR;
     }
 }
-
-?>

@@ -42,5 +42,3 @@ class Legroup_Admin_IndexAction extends Legroup_AbstractAction
 		$render->setAttribute('adminMenu', $this->mModule->getAdminMenu());
 	}
 }
-
-?>

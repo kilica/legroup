@@ -1,6 +1,6 @@
 CREATE TABLE `{prefix}_{dirname}_group` (
   `group_id` int(11) unsigned NOT NULL	auto_increment,
-  `title` varchar(255) NOT NULL,
+  `title` varchar(191) NOT NULL,
   `publicity` int(2) unsigned NOT NULL,
   `approval` int(2) unsigned NOT NULL,
   `description` text NOT NULL,

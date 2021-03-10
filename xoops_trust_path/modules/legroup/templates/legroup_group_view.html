@@ -7,7 +7,7 @@
     <{if $object->isMember($xoops_userid, ('Lenum_GroupRank::ASSOCIATE'))}>
     <a href="<{xoops_cooluri dirname=$dirname dataname=member data_id=$object->getMyMemberId() action=delete}>" class="btn btn-small">
       <i class="icon-trash"></i> <{$smarty.const._MD_LEGROUP_LANG_RESIGN}></a>
-      <{elseif $object->isMember($xoops_userid, Lenum_GroupRank::ASSOCIATE, Lenum_WorkflowStatus::PROGRESS)}>
+      <{elseif $object->isMember($xoops_userid, ('Lenum_GroupRank::ASSOCIATE'), ('Lenum_WorkflowStatus::PROGRESS'))}>
       <{else}>
       <a href="<{xoops_cooluri dirname=$dirname dataname=member action=edit query="group_id=`$groupId`"}>" class="btn btn-small">
           <i class="icon-user"></i> <{$smarty.const._MD_LEGROUP_LANG_JOIN}></a>

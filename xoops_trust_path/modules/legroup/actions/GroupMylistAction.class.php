@@ -38,7 +38,7 @@ class Legroup_GroupMylistAction extends Legroup_GroupListAction
     **/
     public function getDefaultView()
     {
-        $this->mFilter =& $this->_getFilterForm();
+        $this->mFilter = $this->_getFilterForm();
         $this->mFilter->fetch();
     
         $mHandler = Legacy_Utils::getModuleHandler('member', $this->mAsset->mDirname);
@@ -47,7 +47,7 @@ class Legroup_GroupMylistAction extends Legroup_GroupListAction
         $handler =& $this->_getHandler();
         $cri = $this->mFilter->getCriteria();
         $cri->add(new Criteria('group_id', $ids, 'IN'));
-        $this->mObjects =& $handler->getObjects($cri);
+        $this->mObjects = $handler->getObjects($cri);
     
         return LEGROUP_FRAME_VIEW_INDEX;
     }
@@ -72,5 +72,3 @@ class Legroup_GroupMylistAction extends Legroup_GroupListAction
         $render->setAttribute('xoops_breadcrumbs', $breadcrumbs);
     }
 }
-
-?>

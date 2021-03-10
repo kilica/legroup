@@ -37,7 +37,7 @@ class Legroup_GroupListAction extends Legroup_AbstractListAction
 	 * 
 	 * @return	Legroup_GroupFilterForm
 	**/
-	protected function &_getFilterForm()
+	protected function _getFilterForm()
 	{
 		$filter =& $this->mAsset->getObject('filter', 'Group',false);
 		$filter->prepare($this->_getPageNavi(), $this->_getHandler());
@@ -91,5 +91,3 @@ class Legroup_GroupListAction extends Legroup_AbstractListAction
         $render->setAttribute('xoops_breadcrumbs', $breadcrumbs);
 	}
 }
-
-?>
