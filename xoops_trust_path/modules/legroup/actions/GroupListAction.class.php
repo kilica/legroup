@@ -39,7 +39,7 @@ class Legroup_GroupListAction extends Legroup_AbstractListAction
 	**/
 	protected function _getFilterForm()
 	{
-		$filter =& $this->mAsset->getObject('filter', 'Group',false);
+		$filter = $this->mAsset->getObject('filter', 'Group',false);
 		$filter->prepare($this->_getPageNavi(), $this->_getHandler());
 		return $filter;
 	}
