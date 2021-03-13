@@ -4,11 +4,17 @@
 <div class="page-header">
   <h1>
     <{$object->getShow('title')}> [<{$object->getShowPublicity()}>]
-    <{if $object->isMember($xoops_userid, Lenum_GroupRank::ASSOCIATE)}>
+    <{if $object->isMember($xoops_userid, ('Lenum_GroupRank::ASSOCIATE'))}>
     <a href="<{xoops_cooluri dirname=$dirname dataname=member data_id=$object->getMyMemberId() action=delete}>" class="btn btn-small">
-      <i class="icon-trash"></i> <{$smarty.const._MD_LEGROUP_LANG_RESIGN}></a><{elseif $object->isMember($xoops_userid, Lenum_GroupRank::ASSOCIATE, Lenum_WorkflowStatus::PROGRESS)}><{else}><a href="<{xoops_cooluri dirname=$dirname dataname=member action=edit query="group_id=`$groupId`"}>" class="btn btn-small"><i class="icon-user"></i> <{$smarty.const._MD_LEGROUP_LANG_JOIN}></a><{/if}>
+      <i class="icon-trash"></i> <{$smarty.const._MD_LEGROUP_LANG_RESIGN}></a>
+      <{elseif $object->isMember($xoops_userid, ('Lenum_GroupRank::ASSOCIATE'), ('Lenum_WorkflowStatus::PROGRESS'))}>
+      <{else}>
+      <a href="<{xoops_cooluri dirname=$dirname dataname=member action=edit query="group_id=`$groupId`"}>" class="btn btn-small">
+          <i class="icon-user"></i> <{$smarty.const._MD_LEGROUP_LANG_JOIN}></a>
+          <{/if}>
     <{if $isEditor===true}>
-    <a class="btn" href="<{xoops_cooluri dirname=$dirname dataname=group action=edit data_id=$object->get('group_id')}>"><i class="icon-pencil"></i> <{$smarty.const._MD_LEGROUP_LANG_GROUP_EDIT}></a>
+    <a class="btn" href="<{xoops_cooluri dirname=$dirname dataname=group action=edit data_id=$object->get('group_id')}>">
+        <i class="icon-pencil"></i> <{$smarty.const._MD_LEGROUP_LANG_GROUP_EDIT}></a>
     <{/if}>
   </h1>
   <div><{$object->getShow('description')}></div>
@@ -18,9 +24,16 @@
 <section>
   <h2>
     <{$smarty.const._MD_LEGROUP_LANG_MEMBER}> (<{$object->countMembers()}>)
-    <{if $object->isMember($xoops_userid, 7)}><a href="<{xoops_cooluri dirname=$dirname dataname=member action=add query="group_id=`$groupId`"}>" class="btn btn-small"><i class="icon-user"></i> <{$smarty.const._MD_LEGROUP_LANG_ADD_A_NEW_MEMBER}></a><{/if}>
-    <a href="<{xoops_cooluri dirname=$dirname dataname=member action=list query="group_id=`$groupId`"}>" class="btn btn-small"><i class="icon-list"></i><{$smarty.const._MD_LEGROUP_LANG_MEMBER}></a>
-    <{if $object->countMembers(null, 5)>0 && $object->getMyRank()>=7}><a href="<{xoops_cooluri dirname=$dirname dataname=member query="group_id=$groupId"}>" class="btn btn-small btn-warning"><i class="icon-ok"></i> <{$smarty.const._MD_LEGROUP_LANG_NOT_APPROVED}></a><{/if}>
+    <{if $object->isMember($xoops_userid, 7)}>
+    <a href="<{xoops_cooluri dirname=$dirname dataname=member action=add query="group_id=`$groupId`"}>" class="btn btn-small">
+        <i class="icon-user"></i> <{$smarty.const._MD_LEGROUP_LANG_ADD_A_NEW_MEMBER}></a>
+        <{/if}>
+    <a href="<{xoops_cooluri dirname=$dirname dataname=member action=list query="group_id=`$groupId`"}>" class="btn btn-small">
+        <i class="icon-list"></i><{$smarty.const._MD_LEGROUP_LANG_MEMBER}></a>
+    <{if $object->countMembers(null, 5)>0 && $object->getMyRank()>=7}>
+    <a href="<{xoops_cooluri dirname=$dirname dataname=member query="group_id=$groupId"}>" class="btn btn-small btn-warning">
+        <i class="icon-ok"></i> <{$smarty.const._MD_LEGROUP_LANG_NOT_APPROVED}></a>
+        <{/if}>
   </h2>
   <section>
     <h3><{$smarty.const._MD_LEGROUP_LANG_RECENT_MEMBERS}></h3>
@@ -39,8 +52,12 @@
   <{foreach item=client from=$clients.data key=k}>
   <div class="client">
     <h2><{$clients.title[$k]}>
-      <a href="<{xoops_cooluri dirname=$clients.dirname[$k] dataname=$clients.dataname[$k] action=list query="category_id=`$groupId`"}>" class="btn btn-small"><i class="icon-list"></i></a>
-      <{if $clients.isEditor[$k]==true}><a href="<{xoops_cooluri dirname=$clients.dirname[$k] dataname=$clients.dataname[$k] action=edit query="category_id=`$groupId`"}>" class="btn btn-small"><i class="icon-pencil"></i><{$smarty.const._EDIT}></a><{/if}>
+      <a href="<{xoops_cooluri dirname=$clients.dirname[$k] dataname=$clients.dataname[$k] action=list query="category_id=`$groupId`"}>" class="btn btn-small">
+          <i class="icon-list"></i></a>
+      <{if $clients.isEditor[$k]==true}>
+      <a href="<{xoops_cooluri dirname=$clients.dirname[$k] dataname=$clients.dataname[$k] action=edit query="category_id=`$groupId`"}>" class="btn btn-small">
+          <i class="icon-pencil"></i><{$smarty.const._EDIT}></a>
+          <{/if}>
     </h2>
     <{foreach item=item from=$clients.data[$k]}>
     <{include file="`$clients.template_name[$k]`" data=$item}>
@@ -55,7 +72,8 @@
   <h2><{$smarty.const._MD_LEGROUP_LANG_EDIT_POLICY}></h2>
   <ul>
   <{foreach item=client from=$clientList key=k}>
-  <li><a href="<{xoops_cooluri dirname=$dirname dataname=policy action=edit query="dirname=`$client.dirname`&dataname=`$client.dataname`&group_id=$groupId"}>"><{$client.dirname}> - <{$client.dataname}></a></li>
+  <li><a href="<{xoops_cooluri dirname=$dirname dataname=policy action=edit query="dirname=`$client.dirname`&dataname=`$client.dataname`&group_id=$groupId"}>">
+      <{$client.dirname}> - <{$client.dataname}></a></li>
   <{/foreach}>
   </ul>
 </section>

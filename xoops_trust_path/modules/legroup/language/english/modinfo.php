@@ -38,9 +38,9 @@ define('_MI_LEGROUP_INSTALL_ERROR_CONFIG_UPDATED', 'Config \'{0}\' could not upd
 define('_MI_LEGROUP_INSTALL_ERROR_CONFIG_NOT_FOUND', 'Config is not found.');
 define('_MI_LEGROUP_INSTALL_MSG_MODULE_INFORMATION_DELETED', 'Module information is deleted.');
 define('_MI_LEGROUP_INSTALL_ERROR_MODULE_INFORMATION_DELETED', 'Module information could not deleted.');
-define('_MI_LEGROUP_INSTALL_MSG_TABLE_DOROPPED', 'Table \'{0}\' is doropped.');
-define('_MI_LEGROUP_INSTALL_ERROR_TABLE_DOROPPED', 'Table \'{0}\' could not doropped.');
-define('_MI_LEGROUP_INSTALL_ERROR_BLOCK_TPL_DELETED', 'Block template could not deleted.<br />{0}');
+define('_MI_LEGROUP_INSTALL_MSG_TABLE_DOROPPED', 'Table \'{0}\' is dropped.');
+define('_MI_LEGROUP_INSTALL_ERROR_TABLE_DOROPPED', 'Table \'{0}\' could not dropped.');
+define('_MI_LEGROUP_INSTALL_ERROR_BLOCK_TPL_DELETED', 'Block template could not deleted.<br>{0}');
 define('_MI_LEGROUP_INSTALL_MSG_MODULE_UNINSTALLED', 'Module \'{0}\' is uninstalled.');
 define('_MI_LEGROUP_INSTALL_ERROR_MODULOE_UNINSTALLED', 'Module \'{0}\' could not uninstalled.');
 define('_MI_LEGROUP_INSTALL_MSG_UPDATE_STARTED', 'Module update started.');
@@ -48,27 +48,27 @@ define('_MI_LEGROUP_INSTALL_MSG_UPDATE_FINISHED', 'Module update is finished.');
 define('_MI_LEGROUP_INSTALL_ERROR_UPDATE_FINISHED', 'Module could not updated.');
 define('_MI_LEGROUP_INSTALL_MSG_MODULE_UPDATED', 'Module \'{0}\' is updated.');
 define('_MI_LEGROUP_INSTALL_ERROR_MODULE_UPDATED', 'Module \'{0}\' could not updated.');
-define('_MI_LEGROUP_LANG_LEGROUP', 'LEGROUP');
-define('_MI_LEGROUP_DESC_LEGROUP', 'LEGROUP');
+define('_MI_LEGROUP_LANG_LEGROUP', 'LeGroup');
+define('_MI_LEGROUP_DESC_LEGROUP', 'LeGroup');
 define('_MI_LEGROUP_LANG_AUTHOR', 'HIKAWA Kilica');
 define('_MI_LEGROUP_LANG_CREDITS', 'http://xoopsdev.com/');
-define('_MI_LEGROUP_TPL_GROUP_LIST', 'Group List');
-define('_MI_LEGROUP_TPL_GROUP_EDIT', 'Group Edit');
-define('_MI_LEGROUP_TPL_GROUP_DELETE', 'Group Delete');
-define('_MI_LEGROUP_TPL_GROUP_VIEW', 'Group View');
-define('_MI_LEGROUP_TPL_MEMBER_LIST', 'Member List');
-define('_MI_LEGROUP_TPL_MEMBER_EDIT', 'Member Edit');
-define('_MI_LEGROUP_TPL_MEMBER_DELETE', 'Member Delete');
-define('_MI_LEGROUP_TPL_MEMBER_APPROVE', 'Member Approve');
-define('_MI_LEGROUP_TPL_POLICY_EDIT', 'Policy Edit');
+define('_MI_LEGROUP_TPL_GROUP_LIST', 'List Groups');
+define('_MI_LEGROUP_TPL_GROUP_EDIT', 'Edit Group');
+define('_MI_LEGROUP_TPL_GROUP_DELETE', 'Delete Group');
+define('_MI_LEGROUP_TPL_GROUP_VIEW', 'View Group');
+define('_MI_LEGROUP_TPL_MEMBER_LIST', 'List Members');
+define('_MI_LEGROUP_TPL_MEMBER_EDIT', 'Edit Member');
+define('_MI_LEGROUP_TPL_MEMBER_DELETE', 'Delete Member');
+define('_MI_LEGROUP_TPL_MEMBER_APPROVE', 'Approve Member');
+define('_MI_LEGROUP_TPL_POLICY_EDIT', 'Edit Policy');
 /*** Module config ***/
-define('_MI_LEGROUP_LANG_CSS_FILE', 'stylesheet file url');
-define('_MI_LEGROUP_DESC_CSS_FILE', 'stylesheet file url');
-define('_MI_LEGROUP_LANG_CLIENT_LIST', 'Client Module List');
-define('_MI_LEGROUP_DESC_CLIENT_LIST', 'List up client modules and its tablename separated by comma. If there are more than one client modules, write one module and its tablename in one line.<br />
-Example:<br />
-forum,topics<br />
-forum,reply<br />
+define('_MI_LEGROUP_LANG_CSS_FILE', 'CSS File URL');
+define('_MI_LEGROUP_DESC_CSS_FILE', 'CSS File URL (Input after '.XOOPS_URL.')');
+define('_MI_LEGROUP_LANG_CLIENT_LIST', 'List of Client Modules');
+define('_MI_LEGROUP_DESC_CLIENT_LIST', 'List up client modules and their tablename separated by comma. If there are more than one client module, write one module and its tablename per line.<br>
+Example:<br>
+forum,topics<br>
+forum,reply<br>
 album,item');
 
 /** blocks */

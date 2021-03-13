@@ -140,5 +140,3 @@ class Legroup_MemberDeleteAction extends Legroup_AbstractDeleteAction
         $this->mRoot->mController->executeForward($this->_getNextUri('member'));
     }
 }
-
-?>

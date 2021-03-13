@@ -83,14 +83,14 @@ class Legroup_Installer
     **/
     private function _installModule()
     {
-        $moduleHandler =& Legroup_Utils::getXoopsHandler('module');
+        $moduleHandler = Legroup_Utils::getXoopsHandler('module');
         if(!$moduleHandler->insert($this->_mXoopsModule))
         {
             $this->mLog->addError(_MI_LEGROUP_INSTALL_ERROR_MODULE_INSTALLED);
             return false;
         }
     
-        $gpermHandler =& Legroup_Utils::getXoopsHandler('groupperm');
+        $gpermHandler = Legroup_Utils::getXoopsHandler('groupperm');
     
         if($this->_mXoopsModule->getInfo('hasAdmin'))
         {
@@ -106,7 +106,7 @@ class Legroup_Installer
         {
             if($this->_mXoopsModule->getInfo('read_any'))
             {
-                $memberHandler =& Legroup_Utils::getXoopsHandler('member');
+                $memberHandler = Legroup_Utils::getXoopsHandler('member');
                 $groupObjects =& $memberHandler->getGroups();
                 foreach($groupObjects as $group)
                 {
@@ -144,7 +144,7 @@ class Legroup_Installer
     **/
     private function &_createPermission(/*** int ***/ $group)
     {
-        $gpermHandler =& Legroup_Utils::getXoopsHandler('groupperm');
+        $gpermHandler = Legroup_Utils::getXoopsHandler('groupperm');
         $perm =& $gpermHandler->create();
         $perm->setVar('gperm_groupid',$group);
         $perm->setVar('gperm_itemid',$this->_mXoopsModule->getVar('mid'));
@@ -284,5 +284,3 @@ class Legroup_Installer
         return true;
     }
 }
-
-?>

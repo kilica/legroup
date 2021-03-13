@@ -68,7 +68,7 @@ class Legroup_Uninstaller
     **/
     private function _uninstallModule()
     {
-        $moduleHandler =& Legroup_Utils::getXoopsHandler('module');
+        $moduleHandler = Legroup_Utils::getXoopsHandler('module');
     
         if($moduleHandler->delete($this->_mXoopsModule))
         {

@@ -33,7 +33,7 @@ class Legroup_GroupObject extends Legacy_AbstractGroupObject
 	public function __construct()
 	{
 		$this->initVar('group_id', XOBJ_DTYPE_INT, '', false);
-		$this->initVar('title', XOBJ_DTYPE_STRING, '', false, 255);
+		$this->initVar('title', XOBJ_DTYPE_STRING, '', false, 191);
 		$this->initVar('publicity', XOBJ_DTYPE_INT, '', false);
 		$this->initVar('approval', XOBJ_DTYPE_INT, '', false);
 		$this->initVar('description', XOBJ_DTYPE_TEXT, '', false);
@@ -251,7 +251,7 @@ class Legroup_GroupObject extends Legacy_AbstractGroupObject
 	{
 		if ($this->_mMemberLoadedFlag == false) {
 			$handler = Legacy_Utils::getModuleHandler('member', $this->getDirname());
-			$this->mMember =& $handler->getObjects(new Criteria('group_id', $this->get('group_id')));
+			$this->mMember = $handler->getObjects(new Criteria('group_id', $this->get('group_id')));
 			$this->_mMemberLoadedFlag = true;
 		}
 	}
@@ -267,7 +267,7 @@ class Legroup_GroupObject extends Legacy_AbstractGroupObject
 	{
 		if ($this->_mPolicyLoadedFlag == false) {
 			$handler = Legacy_Utils::getModuleHandler('policy', $this->getDirname());
-			$this->mPolicy =& $handler->getObjects(new Criteria('group_id', $this->get('group_id')));
+			$this->mPolicy = $handler->getObjects(new Criteria('group_id', $this->get('group_id')));
 			$this->_mPolicyLoadedFlag = true;
 		}
 	}
@@ -295,7 +295,8 @@ class Legroup_GroupHandler extends XoopsObjectGenericHandler
 	public function __construct(/*** XoopsDatabase ***/ &$db,/*** string ***/ $dirname)
 	{
 		$this->mTable = strtr($this->mTable,array('{dirname}' => $dirname));
-		parent::XoopsObjectGenericHandler($db);
+		//!Fix parent::XoopsObjectGenericHandler($db);
+        parent::__construct($db);
 	}
 
 	/**
@@ -356,4 +357,3 @@ class Legroup_GroupHandler extends XoopsObjectGenericHandler
 	}
 }
 
-?>

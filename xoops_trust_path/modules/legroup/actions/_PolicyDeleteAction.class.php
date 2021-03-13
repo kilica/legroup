@@ -124,5 +124,3 @@ class Legroup_PolicyDeleteAction extends Legroup_AbstractDeleteAction
 		$this->mRoot->mController->executeForward($this->_getNextUri('policy'));
 	}
 }
-
-?>

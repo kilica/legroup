@@ -64,7 +64,7 @@ class Legroup_Updater
     **/
     public function setCurrentXoopsModule(/*** XoopsModule ***/ &$module)
     {
-        $moduleHandler =& Legroup_Utils::getXoopsHandler('module');
+        $moduleHandler = Legroup_Utils::getXoopsHandler('module');
         $cloneModule =& $moduleHandler->create();
     
         $cloneModule->unsetNew();
@@ -107,7 +107,7 @@ class Legroup_Updater
     **/
     public function getCurrentVersion()
     {
-        return intval($this->_mCurrentVersion);
+        return (int)$this->_mCurrentVersion;
     }
 
     /**
@@ -125,7 +125,7 @@ class Legroup_Updater
         {
             if($tVer >= $this->getCurrentVersion())
             {
-                return intval($tVer);
+                return (int)$tVer;
             }
         }
     
@@ -292,7 +292,7 @@ class Legroup_Updater
     **/
     public function saveXoopsModule(/*** XoopsModule ***/ &$module)
     {
-        $moduleHandler =& Legroup_Utils::getXoopsHandler('module');
+        $moduleHandler = Legroup_Utils::getXoopsHandler('module');
     
         if($moduleHandler->insert($module))
         {
@@ -333,5 +333,3 @@ class Legroup_Updater
         }
     }
 }
-
-?>

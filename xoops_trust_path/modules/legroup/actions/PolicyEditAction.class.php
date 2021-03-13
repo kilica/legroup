@@ -299,5 +299,3 @@ class Legroup_PolicyEditAction extends Legroup_AbstractEditAction
         }
     }
 }
-
-?>

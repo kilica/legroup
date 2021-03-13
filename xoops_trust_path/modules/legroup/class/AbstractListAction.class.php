@@ -28,7 +28,7 @@ abstract class Legroup_AbstractListAction extends Legroup_AbstractAction
 	 * 
 	 * @return	&XoopsObjectGenericHandler
 	**/
-	protected function &_getHandler()
+	protected function _getHandler()
 	{
 	}
 
@@ -64,7 +64,7 @@ abstract class Legroup_AbstractListAction extends Legroup_AbstractAction
 	 * 
 	 * @return	&LegroupAbstractFilterForm
 	**/
-	protected function &_getFilterForm()
+	protected function _getFilterForm()
 	{
 	}
 
@@ -86,7 +86,7 @@ abstract class Legroup_AbstractListAction extends Legroup_AbstractAction
 	 * 
 	 * @return	&XCube_PageNavigator
 	**/
-	protected function &_getPageNavi()
+	protected function _getPageNavi()
 	{
 		$navi = new XCube_PageNavigator($this->_getBaseUrl(), XCUBE_PAGENAVI_START);
 		return $navi;
@@ -101,11 +101,11 @@ abstract class Legroup_AbstractListAction extends Legroup_AbstractAction
 	**/
 	public function getDefaultView()
 	{
-		$this->mFilter =& $this->_getFilterForm();
+		$this->mFilter = $this->_getFilterForm();
 		$this->mFilter->fetch();
 	
-		$handler =& $this->_getHandler();
-		$this->mObjects =& $handler->getObjects($this->mFilter->getCriteria());
+		$handler = $this->_getHandler();
+		$this->mObjects = $handler->getObjects($this->mFilter->getCriteria());
 	
 		return LEGROUP_FRAME_VIEW_INDEX;
 	}
@@ -122,5 +122,3 @@ abstract class Legroup_AbstractListAction extends Legroup_AbstractAction
 		return $this->getDefaultView();
 	}
 }
-
-?>

@@ -136,7 +136,8 @@ class Legroup_MemberHandler extends XoopsObjectGenericHandler
 	public function __construct(/*** XoopsDatabase ***/ &$db,/*** string ***/ $dirname)
 	{
 		$this->mTable = strtr($this->mTable,array('{dirname}' => $dirname));
-		parent::XoopsObjectGenericHandler($db);
+		//!Fix parent::XoopsObjectGenericHandler($db);
+        parent::__construct($db);
 	}
 
 	/**
@@ -240,4 +241,3 @@ class Legroup_MemberHandler extends XoopsObjectGenericHandler
 	}
 }
 
-?>

@@ -121,5 +121,3 @@ class Legroup_MemberApproveAction extends Legroup_MemberEditAction
 		}
 	}
 }
-
-?>

@@ -59,8 +59,8 @@ $this->mFieldProperties['group_id']->addMessage('required', _MD_LEGROUP_ERROR_RE
 		$this->mFieldProperties['title'] = new XCube_FieldProperty($this);
 		$this->mFieldProperties['title']->setDependsByArray(array('required','maxlength'));
 		$this->mFieldProperties['title']->addMessage('required', _MD_LEGROUP_ERROR_REQUIRED, _MD_LEGROUP_LANG_TITLE);
-		$this->mFieldProperties['title']->addMessage('maxlength', _MD_LEGROUP_ERROR_MAXLENGTH, _MD_LEGROUP_LANG_TITLE, '255');
-		$this->mFieldProperties['title']->addVar('maxlength', '255');
+		$this->mFieldProperties['title']->addMessage('maxlength', _MD_LEGROUP_ERROR_MAXLENGTH, _MD_LEGROUP_LANG_TITLE, '191');
+		$this->mFieldProperties['title']->addVar('maxlength', '191');
 		$this->mFieldProperties['publicity'] = new XCube_FieldProperty($this);
 		$this->mFieldProperties['publicity']->setDependsByArray(array('required'));
 		$this->mFieldProperties['publicity']->addMessage('required', _MD_LEGROUP_ERROR_REQUIRED, _MD_LEGROUP_LANG_PUBLICITY);
